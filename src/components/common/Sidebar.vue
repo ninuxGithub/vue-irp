@@ -60,6 +60,9 @@
                             {
                                 index: 'studenttable',
                                 title: '学生信息表'
+                            },{
+                                index:'mergeTable',
+                                title:'表格合并'
                             }
                         ]
                     },

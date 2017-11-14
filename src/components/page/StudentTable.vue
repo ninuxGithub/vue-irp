@@ -374,7 +374,10 @@
                 //axios.get(this.url,this.filter).then((response) =>{
                 axios.get(this.url,{params:this.filter}).then((response) =>{
            			this.students = response.data.content;
-           			this.$message.success('loading success');
+                    this.$message({
+                        message: 'loading success',
+                        type: 'success'
+                    });
            			this.filter.per_page = response.data.size;
            			this.total_rows=response.data.totalElements;
            			this.filter.page = response.data.number;

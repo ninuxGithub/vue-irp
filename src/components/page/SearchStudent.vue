@@ -16,7 +16,7 @@
 							<el-option label="学号" value="number"></el-option>
 						</el-select>
 					</el-input>
-					<el-button type="danger" class="danger" slot="append" icon="search" @click="filterResultData"></el-button>
+					<el-button type="danger" class="danger" slot="append" icon="search"  @click="filterResultData">搜索</el-button>
 					
 					<!--
 				 	注释掉的代码
@@ -58,7 +58,7 @@
         name: 'search-student',
         data() {
             return {
-            	url:'http://localhost:8000/studentinfo',
+            	url:'/api/studentinfo',
                 stu: {
                     name: '',
                     number: ''

@@ -24,7 +24,12 @@ export default new Router({
                 {
                 	path: '/demo',
                 	component: resolve => require(['../components/page/Demo.vue'], resolve)
+                },
+                {
+                	path: '/mergeTable',
+                	component: resolve => require(['../components/page/MergeTable.vue'], resolve)
                 }
+
             ]
         },
         {
