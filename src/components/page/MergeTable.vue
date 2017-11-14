@@ -58,6 +58,10 @@
                     label="数值 3（元）">
             </el-table-column>
         </el-table>
+        <div class="block">
+            <span class="demonstration">有默认值</span>
+            <el-color-picker v-model="color1"></el-color-picker>
+        </div>
     </div>
 </template>
 
@@ -65,6 +69,7 @@
     export default {
         data() {
             return {
+                color1: 'red',
                 tableData6: [{
                     id: '12987122',
                     name: '王小虎',

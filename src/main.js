@@ -6,7 +6,8 @@ import ElementUI from 'element-ui';
 //import 'element-ui/lib/theme-default/index.css';    // 默认主题
  //import '../static/css/theme-green/index.css';       // 浅绿色主题
 import "babel-polyfill";
-import '../static/theme/index.css'
+//import '../static/theme/index.css'; //引入创建好的样式
+import './element-variables.scss'
 import moment from 'moment'
 //import VueMoment from 'vue-moment'
 
