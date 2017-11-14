@@ -14,10 +14,21 @@ import moment from 'moment'
 import $ from 'jquery'
 import VueResource from 'vue-resource'
 
+
 window.$ = $;
 Vue.use(VueResource);
 //Vue.use(VueMoment)
 Vue.http.options.emulateJSON = true;
+/*const $axios = axios.create({
+    baseURL: 'http://localhost:8080',
+    timeout: 5000,
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'sessionId':  Lockr.get("sessionId"),
+        'authKey': Lockr.get("authKey"),
+    }
+});*/
+
 
 Vue.filter('moment', function (value, formatString) {
     formatString = formatString || 'YYYY-MM-DD HH:mm:ss';

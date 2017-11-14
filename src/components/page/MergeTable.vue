@@ -1,5 +1,9 @@
 <template>
     <div class="template">
+        <div class="block">
+            <span class="demonstration">有默认值</span>
+            <el-color-picker v-model="color1" @change="changeColor" ></el-color-picker>
+        </div>
         <el-table
                 :data="tableData6"
                 :span-method="arraySpanMethod"
@@ -58,14 +62,11 @@
                     label="数值 3（元）">
             </el-table-column>
         </el-table>
-        <div class="block">
-            <span class="demonstration">有默认值</span>
-            <el-color-picker v-model="color1"></el-color-picker>
-        </div>
     </div>
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
         data() {
             return {
@@ -104,6 +105,25 @@
             };
         },
         methods: {
+            changeColor(color){
+                //axios post 需要借助qs 将参数sringify
+                var qs = require('qs');
+                axios.post('/api/changeColor',qs.stringify({'color':color})).then(function(response) {
+
+                }).catch(function(error) {
+
+                });
+/*
+                axios.get('/api/changeColor',
+                    {params:{color:v}},
+                    {headers: {"Content-Type": "application/x-www-form-urlencoded"}
+                    }).then(function(response) {
+                    console.dir(response);
+                }).catch(function(error) {
+                    console.dir(error);
+                });
+*/
+            },
             arraySpanMethod({row, column, rowIndex, columnIndex}) {
                 if (rowIndex % 2 === 0) {
                     if (columnIndex === 0) {
