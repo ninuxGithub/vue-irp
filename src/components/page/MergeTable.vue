@@ -2,7 +2,7 @@
     <div class="template">
         <div class="block">
             <span class="demonstration">有默认值</span>
-            <el-color-picker v-model="color1" @change="changeColor" ></el-color-picker>
+            <el-color-picker v-model="color" @change="changeColor" ></el-color-picker>
         </div>
         <el-table
                 :data="tableData6"
@@ -70,7 +70,7 @@
     export default {
         data() {
             return {
-                color1: 'red',
+                color: 'red',
                 tableData6: [{
                     id: '12987122',
                     name: '王小虎',
@@ -104,7 +104,19 @@
                 }]
             };
         },
+        
+        mounted:function (){
+            this.init();
+        },
         methods: {
+            init(){
+                axios.get("/api/defaultTheme").then((response)=>{
+                    this.color = response.data.color;
+                    console.dir(this.color)
+                }).catch(function (e) {
+                    console.dir(e)
+                });
+            },
             changeColor(color){
                 //axios post 需要借助qs 将参数sringify
                 var qs = require('qs');
@@ -113,16 +125,6 @@
                 }).catch(function(error) {
 
                 });
-/*
-                axios.get('/api/changeColor',
-                    {params:{color:v}},
-                    {headers: {"Content-Type": "application/x-www-form-urlencoded"}
-                    }).then(function(response) {
-                    console.dir(response);
-                }).catch(function(error) {
-                    console.dir(error);
-                });
-*/
             },
             arraySpanMethod({row, column, rowIndex, columnIndex}) {
                 if (rowIndex % 2 === 0) {
