@@ -99,14 +99,14 @@
    		
    		<!--修改学生-->
    		<el-dialog title="修改学生" v-model="dialogUpdateVisible" :close-on-click-model="false" :close-on-press-escape="false">
-   			<el-form id="#update" :model="update" ref="update" label-width="100px">
-   				<el-form-item label="姓名" prop="name">
+   			<el-form id="#update" :model="update" ref="update">
+   				<el-form-item label="姓名" prop="name" label-width="120">
    					<el-input v-model="update.name"></el-input>
    				</el-form-item>
    				<el-form-item label="学号" prop="number">
    					<el-input v-model="update.number"></el-input>
    				</el-form-item>
-   				<el-form-item label="学分" prop="score">
+   				<el-form-item label="学分" prop="score" label-width="120px">
    					<el-input v-model="update.score"></el-input>
    				</el-form-item>
    				<el-form-item label="创建时间" prop="createTime">
